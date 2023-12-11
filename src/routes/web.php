@@ -37,6 +37,7 @@ Route::get('/category/{slug}/{id}', [
     'as' => 'category.product',
     'uses' => 'App\Http\Controllers\CategoryAdminController@index'
 ]);
+Route::post('/tim_kiem', [HomeAdminController::class, 'search'])->name('tim_kiem.search');
 Route::get('/detail/{slug}', [HomeAdminController::class, 'detail'])->name('detail');
 
 //xu ly admin

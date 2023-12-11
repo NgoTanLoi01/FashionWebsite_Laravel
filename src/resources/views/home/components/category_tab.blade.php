@@ -63,8 +63,8 @@
                             @foreach ($categoryItemProduct->products as $productItemTabs)
                                 <div class="product {{ $indexCategoryProduct == 0 ? 'product-2' : '' }}">
                                     <figure class="product-media">
-                                        <a href="{{ route('detail', $productItemTabs->slug) }}">
-                                            <img src="{{ config('app.base_url') . $productItemTabs->feature_image_path }}"
+                                        <a style="width: 300px;" href="{{ route('detail', $productItemTabs->slug) }}">
+                                            <img  src="{{ config('app.base_url') . $productItemTabs->feature_image_path }}"
                                                 alt="Product image" class="product-image">
                                         </a>
 
@@ -126,7 +126,7 @@
                             <h3 class="product-title"><a href="product.html">Quần short cotton co giãn</a></h3><!-- End .product-title -->
                             <div class="product-price">
                                 <span class="new-price">299,000 VNĐ</span>
-                                <span class="old-price">Gốc: 359,000 VNĐ</span>
+                                <span class="old-price">Gốc: <del>359,000 VNĐ</del></span>
                             </div><!-- End .product-price -->
                         </div><!-- End .product-body -->
                     </div>
@@ -142,7 +142,7 @@
                             <h3 class="product-title"><a href="#">Áo len dệt kim mịn</a></h3><!-- End .product-title -->
                             <div class="product-price">
                                 <span class="new-price">399,000 VNĐ</span>
-                                <span class="old-price">Gốc: 459,000 VNĐ</span>
+                                <span class="old-price">Gốc: <del>459,000 VNĐ</del></span>
                             </div><!-- End .product-price -->
                         </div><!-- End .product-body -->
                     </div>

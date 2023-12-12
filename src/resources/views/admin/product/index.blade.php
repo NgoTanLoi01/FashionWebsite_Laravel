@@ -45,7 +45,7 @@
                                         <td>{{ $productItem->name }}</td>
                                         {{-- <td>{{ number_format($productItem->price) }}</td> --}}
                                         <td>{{ number_format(floatval($productItem->price)) }}</td>
-                                        <td>{{ number_format(floatval($productItem->sale_price)) }}</td>
+                                        <td style="color: red">{{ number_format(floatval($productItem->sale_price)) }}</td>
                                         <td>
                                             <img class="product_image_150_100" src="{{ $productItem->feature_image_path }}"
                                                 alt="">

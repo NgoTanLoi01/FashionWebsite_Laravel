@@ -123,7 +123,7 @@
                         </figure><!-- End .product-media -->
 
                         <div class="product-body">
-                            <h3 class="product-title"><a href="product.html">Quần short cotton co giãn</a></h3><!-- End .product-title -->
+                            <h3 class="product-title"><a href="#">Quần short cotton co giãn</a></h3><!-- End .product-title -->
                             <div class="product-price">
                                 <span class="new-price">299,000 VNĐ</span>
                                 <span class="old-price">Gốc: <del>359,000 VNĐ</del></span>

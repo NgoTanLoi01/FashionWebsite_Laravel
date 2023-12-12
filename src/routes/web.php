@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeAdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryAdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,12 @@ Route::get('/category/{slug}/{id}', [
 ]);
 Route::post('/tim_kiem', [HomeAdminController::class, 'search'])->name('tim_kiem.search');
 Route::get('/detail/{slug}', [HomeAdminController::class, 'detail'])->name('detail');
+
+//gio hang
+Route::post('/save-cart', [CartController::class, 'save_cart']);
+Route::get('/show-cart', [CartController::class, 'show_cart']);
+Route::get('/delete-to-cart/{rowId}', [CartController::class, 'delete_to_cart']);
+Route::get('/update-cart-quantity', [CartController::class, 'update_cart_quantity']);
 
 //xu ly admin
 Route::prefix('admin')->group(function () {

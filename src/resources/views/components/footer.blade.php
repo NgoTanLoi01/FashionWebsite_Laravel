@@ -6,13 +6,15 @@
                     <div class="widget widget-about">
                         <img src="{{ asset('UserLTE/assets/images/icons/LoiViPhi.png') }}" class="footer-logo"
                             style=" border-radius: 50px;" alt="Footer Logo" width="82" height="25">
+                        <p style="font-size: 30px">Loi Vi Phi</p>
+                        <p style="font-size: 30px">Fashion Studio</p>
                         <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
 
                         <div class="widget-about-info">
                             <div class="row">
                                 <div class="col-sm-6 col-md-4">
                                     <span class="widget-about-title">Got Question? Call us 24/7</span>
-                                    <a href="tel:123456789">0337120073</a>
+                                    <a href="tel:123456789">0123456789</a>
                                 </div><!-- End .col-sm-6 -->
                                 <div class="col-sm-6 col-md-8">
                                     <span class="widget-about-title">Payment Method</span>

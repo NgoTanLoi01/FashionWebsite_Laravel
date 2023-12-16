@@ -33,7 +33,7 @@
                                     <th scope="col">Thứ tự</th>
                                     <th scope="col">Tên</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>

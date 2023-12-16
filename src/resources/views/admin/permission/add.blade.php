@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="content-wrapper">
-        @include('partials.content-header', ['name' => 'Permission', 'key' => 'Add'])
+        @include('partials.content-header', ['name' => 'Thêm', 'key' => 'quyền'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -14,9 +14,9 @@
                         <form action="{{ route('permissions.store') }}" method="post">
                             @csrf
                             <div class="form-group">
-                                <label>Chọn tên module</label>
+                                <label>Chọn tên mô-đun</label>
                                 <select class="form-control" name="module_parent">
-                                    <option value="">Chọn tên module</option>
+                                    <option value="">Chọn tên mô-đun</option>
                                     @foreach (config('permissions.table_module') as $moduleItem)
                                         <option value="{{ $moduleItem }}">{{ $moduleItem }}</option>
                                     @endforeach
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i>Submit</button>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i>Gửi</button>
                         </form>
                     </div>
                 </div>

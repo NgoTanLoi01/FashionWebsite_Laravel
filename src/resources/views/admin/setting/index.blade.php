@@ -17,7 +17,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
-        @include('partials.content-header', ['name' => 'Danh sách', 'key' => 'settings'])
+        @include('partials.content-header', ['name' => 'Danh sách', 'key' => 'setting'])
 
         <div class="content">
             <div class="container-fluid">
@@ -25,13 +25,13 @@
                     <div class="col-md-12">
                         <div class="btn-group dropleft float-right">
                             <a class="btn dropdown-toggle" data-toggle="dropdown" href="">
-                                <b class="">Thêm</b>
+                                <b class="">Thêm setting</b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('settings.create') . '?type=Text' }}">Text</a>
+                                <li><a class="dropdown-item" href="{{ route('settings.create') . '?type=Text' }}">Văn bản</a>
                                 </li>
                                 <li><a class="dropdown-item"
-                                        href="{{ route('settings.create') . '?type=Textarea' }}">Textarea</a></li>
+                                        href="{{ route('settings.create') . '?type=Textarea' }}">Vùng văn bản</a></li>
                             </ul>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                                     <th scope="col">Thứ tự</th>
                                     <th scope="col">Config key</th>
                                     <th scope="col">Config value</th>
-                                    <th scope="col">Hoạt động</th>
+                                    <th scope="col">Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>My Awesome Login Page</title>
+    <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -15,7 +15,8 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            background: #60a3bc !important;
+            /* background: #d2e2ef !important; */
+            background-image: url({{asset('UserLTE/assets/images/banner_NTL/background_image2.jpg')}});
         }
 
         .user_card {
@@ -23,7 +24,7 @@
             width: 350px;
             margin-top: auto;
             margin-bottom: auto;
-            background: #f39c12;
+            background: #d2e2ef;
             position: relative;
             display: flex;
             justify-content: center;
@@ -42,7 +43,7 @@
             width: 170px;
             top: -75px;
             border-radius: 50%;
-            background: #60a3bc;
+            background: white;
             padding: 10px;
             text-align: center;
         }
@@ -60,7 +61,7 @@
 
         .login_btn {
             width: 100%;
-            background: #c0392b !important;
+            background: #d66b95 !important;
             color: white !important;
         }
 
@@ -74,7 +75,7 @@
         }
 
         .input-group-text {
-            background: #c0392b !important;
+            background: #d66b95 !important;
             color: white !important;
             border: 0 !important;
             border-radius: 0.25rem 0 0 0.25rem !important;
@@ -87,7 +88,7 @@
         }
 
         .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-            background-color: #c0392b !important;
+            background-color: #d66b95 !important;
         }
     </style>
 </head>
@@ -99,7 +100,7 @@
             <div class="user_card">
                 <div class="d-flex justify-content-center">
                     <div class="brand_logo_container">
-                        <img src="{{asset('AdminLTE/dist/img/login_logo.png')}}"
+                        <img src="{{asset('UserLTE/assets/images/icons/LoiViPhi.png')}}"
                             class="brand_logo" alt="Logo">
                     </div>
                 </div>
@@ -107,7 +108,7 @@
                     <form action="" method="POST">
                         @csrf
                             <div class="input-group mb-3">
-                                <h4>Đăng nhập tài khoản Quản trị</h4><br>
+                                <h4 style="color: black">Đăng nhập tài khoản Quản trị</h4><br>
                                 @if ($message = Session::get('error'))
                                     <div class="alert alert-danger alert-block">
                                         <button type="button" class="close" data-dismiss="alert">×</button>
@@ -132,7 +133,7 @@
                         <div class="form-group">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                <label class="custom-control-label" for="customControlInline">Ghi nhớ mật khẩu</label>
+                                <label style="color: black" class="custom-control-label" for="customControlInline">Ghi nhớ mật khẩu</label>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center mt-3 login_container">

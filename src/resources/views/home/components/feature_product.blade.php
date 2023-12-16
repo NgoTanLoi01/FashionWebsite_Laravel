@@ -1,3 +1,8 @@
+<style>
+    h6 {
+        font-size: 12px;
+    }
+</style>
 <div class="container featured">
     <ul class="nav nav-pills nav-border-anim nav-big justify-content-center mb-3" role="tablist">
         <li class="nav-item">
@@ -42,17 +47,10 @@
                                 <img src="{{ config('app.base_url') . $product->feature_image_path }}"
                                     alt="Product image" class="product-image">
                             </a>
-
                             {{-- <div class="product-action-vertical">
                             <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>Thêm Danh sách yêu thích</span></a>
                         </div><!-- End .product-action --> --}}
 
-                            <div class="product-action product-action-dark">
-                                <a href="#" class="btn-product btn-cart" title="Add to cart"><span>Thêm vào giỏ
-                                        hàng</span></a>
-                                <a href="popup/quickView.html" class="btn-product btn-quickview"
-                                    title="Quick view"><span>Xem nhanh</span></a>
-                            </div><!-- End .product-action -->
                         </figure><!-- End .product-media -->
 
                         <div class="product-body">
@@ -139,25 +137,23 @@
                                 <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>Danh sách
                                         yêu thích</span></a>
                             </div><!-- End .product-action -->
-
-                            <div class="product-action product-action-dark">
-                                <a href="#" class="btn-product btn-cart" title="Thêm vào giỏ hàng"><span>Thêm vào giỏ hàng</span></a>
-                                <a href="popup/quickView.html" class="btn-product btn-quickview"
-                                    title="Xem nhanh"><span>Xem nhanh</span></a>
-                            </div><!-- End .product-action -->
                         </figure><!-- End .product-media -->
 
                         <div class="product-body">
                             <div class="product-cat">
-                                <a href="{{ route('detail', $productsSellingItem->slug) }}">{{ $productsSellingItem->category->name }}</a>
+                                <a
+                                    href="{{ route('detail', $productsSellingItem->slug) }}">{{ $productsSellingItem->category->name }}</a>
                             </div><!-- End .product-cat -->
                             <h3 class="product-title"><a
                                     href="{{ asset('UserLTE/product') }}">{{ $productsSellingItem->name }}</a></h3>
                             <!-- End .product-title -->
                             <div class="product-price">
-                                <span class="old-price"> Gốc: <del>{{ number_format($productsSellingItem->price) }} VNĐ </del></span>
-                                <span class="new-price">{{ number_format($productsSellingItem->sale_price) }} VNĐ</span>
+                                <span class="old-price"> Gốc: <del>{{ number_format($productsSellingItem->price) }} VNĐ
+                                    </del></span>
+                                <span class="new-price">{{ number_format($productsSellingItem->sale_price) }}
+                                    VNĐ</span>
                             </div><!-- End .product-price -->
+                            
                         </div><!-- End .product-body -->
                     </div><!-- End .product -->
                 @endforeach

@@ -49,7 +49,7 @@
                                 @enderror
                             </div>
 
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i>Submit</button>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i>Gửi</button>
                         </form>
                     </div>
                 </div>

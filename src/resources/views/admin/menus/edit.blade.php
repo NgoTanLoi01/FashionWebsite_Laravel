@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="content-wrapper">
-    @include('partials.content-header', ['name' => 'menus', 'key' => 'Edit'])
+    @include('partials.content-header', ['name' => 'Sửa', 'key' => 'menu'])
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -30,7 +30,7 @@
 
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i>Submit</button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i>Gửi</button>
                     </form>
                 </div>
             </div>

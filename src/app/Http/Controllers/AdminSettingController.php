@@ -41,10 +41,11 @@ class AdminSettingController extends Controller
 
     public function edit($id)
     {
+        $setting = $this->setting->find($id);
         return view('admin.setting.edit', compact('setting'));
     }
 
-    public function update(Request $request, $id)       
+    public function update(Request $request, $id)
     {
         $this->setting->find($id)->update([
             'config_key' => $request->config_key,

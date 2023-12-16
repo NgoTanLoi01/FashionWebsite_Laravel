@@ -14,7 +14,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('partials.content-header', ['name' => 'Thêm', 'key' => 'thành viên'])
+        @include('partials.content-header', ['name' => 'Thêm', 'key' => 'thông tin thành viên'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -44,7 +44,7 @@
                                 </select>
                             </div>
 
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i>Submit</button>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i>Gửi</button>
                         </form>
                     </div>
                 </div>

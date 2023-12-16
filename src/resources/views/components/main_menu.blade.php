@@ -1,4 +1,4 @@
-<div class="header-bottom sticky-header">
+<div class="header-center">
     <nav class="main-nav">
         <ul class="menu sf-arrows">
             <li class="megamenu-container ">
@@ -12,9 +12,7 @@
                     @include('components.child_menu', ['categoryParent' => $categoryParent])
                 </li>
             @endforeach --}}
-            <li>
-                <a href="#" class="">Câu chuyện sản phẩm</a>
-            </li>
+
             <li>
                 <a href="#" class="">Hỏi đáp</a>
             </li>

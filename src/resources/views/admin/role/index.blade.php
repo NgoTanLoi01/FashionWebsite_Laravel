@@ -18,7 +18,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
-        @include('partials.content-header', ['name' => 'Danh sách', 'key' => 'quyền'])
+        @include('partials.content-header', ['name' => 'Danh sách', 'key' => 'vai trò'])
 
         <div class="content">
             <div class="container-fluid">
@@ -34,7 +34,7 @@
                                     <th scope="col">Thứ tự</th>
                                     <th scope="col">Tên vai trò</th>
                                     <th scope="col">Mô tả vai trò</th>
-                                    <th scope="col">Hoạt động</th>
+                                    <th scope="col">Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>

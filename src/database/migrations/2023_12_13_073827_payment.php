@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RemoveFeaturesFromProductsTable extends Migration
+class Payment extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class RemoveFeaturesFromProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            Schema::table('products', function (Blueprint $table) {
-                $table->dropColumn('features');
-            });
+        Schema::create('payment', function (Blueprint $table) {
+            $table->bigIncrements('payment_id');
+            $table->string('payment_method');
+            $table->integer('payment_status');
+            $table->timestamps();
         });
     }
 
@@ -27,8 +28,6 @@ class RemoveFeaturesFromProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('features');
-        });
+        Schema::dropIfExists('payment');
     }
 }

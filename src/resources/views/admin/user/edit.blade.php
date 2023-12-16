@@ -14,7 +14,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('partials.content-header', ['name' => 'Chỉnh sửa', 'key' => 'thành viên'])
+        @include('partials.content-header', ['name' => 'Sửa', 'key' => 'thông tin thành viên'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">

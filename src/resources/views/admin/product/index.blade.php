@@ -35,7 +35,7 @@
                                 <th scope="col">Hình ảnh</th>
                                 <th scope="col">Danh mục</th>
                                 <th scope="col">Kho</th>
-                                <th scope="col">Hoạt động</th>
+                                <th scope="col">Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,8 +44,8 @@
                                         <th scope="row">{{ $productItem->id }}</th>
                                         <td>{{ $productItem->name }}</td>
                                         {{-- <td>{{ number_format($productItem->price) }}</td> --}}
-                                        <td>{{ number_format(floatval($productItem->price)) }}</td>
-                                        <td>{{ number_format(floatval($productItem->sale_price)) }}</td>
+                                        <td>{{ number_format(floatval($productItem->price)) }} VNĐ</td>
+                                        <td style="color: red">{{ number_format(floatval($productItem->sale_price)) }} VNĐ</td>
                                         <td>
                                             <img class="product_image_150_100" src="{{ $productItem->feature_image_path }}"
                                                 alt="">

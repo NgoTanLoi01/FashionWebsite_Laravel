@@ -70,32 +70,31 @@
                                 <div class="product-price">
                                     <span class="new-price">{{ number_format($product->sale_price) }} VNĐ</span>
                                 </div><!-- End .product-price -->
-                                <div class="">
-                                    <label for="qty">{{ $product->quantity }} sản phẩm có sẵn</label>
-                                    <div class="product-details-quantity">
-                                        <input type="number" id="qty" class="form-control" value="1"
-                                            min="1" max="{{$product->quantity }}" step="1" data-decimals="0"
-                                            required>
-                                    </div><!-- End .product-details-quantity -->
-                                    <div>
-                                        <label for="qty">Chọn size:</label>
-                                        <select class="product-details-action" name="cars" id="cars">
-                                            <option value="volvo">S</option>
-                                            <option value="saab">L</option>
-                                            <option value="opel">XL</option>
-                                            <option value="audi">2XL</option>
-                                        </select>
-                                    </div>
-                                </div><!-- End .details-filter-row -->
-                                <br>
-                                <div class="product-details-action">
-                                    <a href="#" class="btn-product btn-cart"><span>Thêm vào giỏ hàng</span></a>
+                                
+                                <form action="{{ URL::to('/save-cart') }}" method="POST">
+                                    {{ csrf_field() }}
+                                    <div class="">
+                                        <label for="qty">{{ $product->quantity }} sản phẩm có sẵn</label>
+                                        <div class="product-details-quantity">
+                                            <input type="number" name="qty" id="qty" class="form-control"
+                                                value="1" min="1" max="{{ $product->quantity }}" step="1"
+                                                data-decimals="0" required>
+                                                <br>
+                                            <input name="productid_hidden" type="hidden" class="form-control"
+                                                value="{{ $product->id }}">
+                                        </div><!-- End .product-details-quantity -->
+                                    </div><!-- End .details-filter-row -->
+                                    <div class="product-details-action">
+                                        {{-- <a href="#" class="btn-product btn-cart"><span>Thêm vào giỏ hàng</span></a> --}}
+                                        <button type="submit" class="btn-product btn-cart"><span>Thêm vào giỏ hàng</button>
 
-                                    <div class="details-action-wrapper">
-                                        <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Thêm vào
-                                                danh sách yêu thích</span></a>
-                                    </div><!-- End .details-action-wrapper -->
-                                </div><!-- End .product-details-action -->
+                                        <div class="details-action-wrapper">
+                                            <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Thêm
+                                                    vào
+                                                    danh sách yêu thích</span></a>
+                                        </div><!-- End .details-action-wrapper -->
+                                    </div><!-- End .product-details-action -->
+                                </form>
 
                                 <div class="product-details-footer">
                                     <div class="social-icons social-icons-sm">

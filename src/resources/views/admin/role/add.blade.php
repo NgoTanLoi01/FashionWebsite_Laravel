@@ -16,7 +16,7 @@
 
 @section('content')
     <div class="content-wrapper">
-        @include('partials.content-header', ['name' => 'Phân', 'key' => 'quyền'])
+        @include('partials.content-header', ['name' => 'Thêm', 'key' => 'vai trò'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -38,7 +38,7 @@
                                 <div class="col-md-12">
                                     <label for="">
                                         <input type="checkbox" class="checkall">
-                                        Checkall
+                                        Chọn tất cả
                                     </label>
                                 </div>
                                 @foreach ($permissionsParent as $permissionsParentItem)
@@ -69,7 +69,7 @@
                         </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i>Submit</button>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i>Gửi</button>
             </form>
         </div>
     </div>

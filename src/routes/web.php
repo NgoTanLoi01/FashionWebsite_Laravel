@@ -1,14 +1,18 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\MenusController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeAdminController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CategoryAdminController;
 use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -37,21 +41,54 @@ Route::get('/category/{slug}/{id}', [
     'as' => 'category.product',
     'uses' => 'App\Http\Controllers\CategoryAdminController@index'
 ]);
+Route::post('/tim_kiem', [HomeAdminController::class, 'search'])->name('tim_kiem.search');
 Route::get('/detail/{slug}', [HomeAdminController::class, 'detail'])->name('detail');
+Route::get('/product_all', [HomeAdminController::class, 'product_all']);
+
+//gio hang
+Route::post('/save-cart', [CartController::class, 'save_cart']);
+Route::get('/show-cart', [CartController::class, 'show_cart'])->name('home.showcart');
+Route::get('/delete-to-cart/{rowId}', [CartController::class, 'delete_to_cart']);
+Route::get('/update-cart-quantity', [CartController::class, 'update_cart_quantity']);
+
+//thanh toan
+Route::get('/login-checkout', [CheckoutController::class, 'login_checkout']);
+Route::get('/logout-checkout', [CheckoutController::class, 'logout_checkout']);
+Route::post('/add-customer', [CheckoutController::class, 'add_customer']);
+Route::post('/order-place', [CheckoutController::class, 'order_place']);
+Route::post('/login-customer', [CheckoutController::class, 'login_customer']);
+Route::get('/checkout', [CheckoutController::class, 'checkout']);
+Route::get('/payment', [CheckoutController::class, 'payment']);
+Route::post('/save-checkout-customer', [CheckoutController::class, 'save_checkout_customer']);
+
+//đơn hàng
+Route::get('/manage-order', [CheckoutController::class, 'manage_order']);
+Route::get('/view-order/{orderId}', [CheckoutController::class, 'view_order']);
+Route::get('/delete-order/{orderId}', [CheckoutController::class, 'delete_order']);
+Route::get('/print-order', [CheckoutController::class, 'print_order']);
+
+
 
 //xu ly admin
 Route::prefix('admin')->group(function () {
+
+    //Home
+    Route::prefix('home')->group(function () {
+        Route::get('/', [
+            'as' => 'home.index',
+            'uses' => 'App\Http\Controllers\AdminController@index',
+        ]);
+    });
+
     //categories
     Route::prefix('categories')->group(function () {
         Route::get('/', [
             'as' => 'categories.index',
-            'uses' => 'App\Http\Controllers\CategoryController@index',
-            'middleware' => 'can:category-list'
+            'uses' => 'App\Http\Controllers\CategoryController@index'
         ]);
         Route::get('/create', [
             'as' => 'categories.create',
-            'uses' => 'App\Http\Controllers\CategoryController@create',
-            'middleware' => 'can:category-add'
+            'uses' => 'App\Http\Controllers\CategoryController@create'
         ]);
         Route::post('/store', [
             'as' => 'categories.store',
@@ -59,8 +96,7 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/edit/{id}', [
             'as' => 'categories.edit',
-            'uses' => 'App\Http\Controllers\CategoryController@edit',
-            'middleware' => 'can:category-edit'
+            'uses' => 'App\Http\Controllers\CategoryController@edit'
         ]);
         Route::post('/update/{id}', [
             'as' => 'categories.update',
@@ -68,8 +104,7 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/delete/{id}', [
             'as' => 'categories.delete',
-            'uses' => 'App\Http\Controllers\CategoryController@delete',
-            'middleware' => 'can:category-delete'
+            'uses' => 'App\Http\Controllers\CategoryController@delete'
         ]);
     });
 
@@ -77,13 +112,11 @@ Route::prefix('admin')->group(function () {
     Route::prefix('menus')->group(function () {
         Route::get('/', [
             'as' => 'menus.index',
-            'uses' => 'App\Http\Controllers\MenusController@index',
-            'middleware' => 'can:menu-list'
+            'uses' => 'App\Http\Controllers\MenusController@index'
         ]);
         Route::get('/create', [
             'as' => 'menus.create',
-            'uses' => 'App\Http\Controllers\MenusController@create',
-            'middleware' => 'can:menu-add'
+            'uses' => 'App\Http\Controllers\MenusController@create'
         ]);
         Route::post('/store', [
             'as' => 'menus.store',
@@ -91,8 +124,7 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/edit/{id}', [
             'as' => 'menus.edit',
-            'uses' => 'App\Http\Controllers\MenusController@edit',
-            'middleware' => 'can:menu-edit'
+            'uses' => 'App\Http\Controllers\MenusController@edit'
         ]);
         Route::post('/update/{id}', [
             'as' => 'menus.update',
@@ -100,8 +132,7 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/delete/{id}', [
             'as' => 'menus.delete',
-            'uses' => 'App\Http\Controllers\MenusController@delete',
-            'middleware' => 'can:menu-delete'
+            'uses' => 'App\Http\Controllers\MenusController@delete'
         ]);
     });
 
@@ -109,13 +140,11 @@ Route::prefix('admin')->group(function () {
     Route::prefix('product')->group(function () {
         Route::get('/', [
             'as' => 'product.index',
-            'uses' => 'App\Http\Controllers\AdminProductController@index',
-            'middleware' => 'can:product-list'
+            'uses' => 'App\Http\Controllers\AdminProductController@index'
         ]);
         Route::get('/create', [
             'as' => 'product.create',
-            'uses' => 'App\Http\Controllers\AdminProductController@create',
-            'middleware' => 'can:product-add'
+            'uses' => 'App\Http\Controllers\AdminProductController@create'
         ]);
         Route::post('/store', [
             'as' => 'product.store',
@@ -123,8 +152,7 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/edit/{id}', [
             'as' => 'product.edit',
-            'uses' => 'App\Http\Controllers\AdminProductController@edit',
-            'middleware' => 'can:product-edit'
+            'uses' => 'App\Http\Controllers\AdminProductController@edit'
         ]);
         Route::post('/update/{id}', [
             'as' => 'product.update',
@@ -132,8 +160,7 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/delete/{id}', [
             'as' => 'product.delete',
-            'uses' => 'App\Http\Controllers\AdminProductController@delete',
-            'middleware' => 'can:product-delete'
+            'uses' => 'App\Http\Controllers\AdminProductController@delete'
         ]);
     });
 
@@ -141,13 +168,11 @@ Route::prefix('admin')->group(function () {
     Route::prefix('slider')->group(function () {
         Route::get('/', [
             'as' => 'slider.index',
-            'uses' => 'App\Http\Controllers\SliderAdminController@index',
-            'middleware' => 'can:slider-list'
+            'uses' => 'App\Http\Controllers\SliderAdminController@index'
         ]);
         Route::get('/create', [
             'as' => 'slider.create',
-            'uses' => 'App\Http\Controllers\SliderAdminController@create',
-            'middleware' => 'can:slider-add'
+            'uses' => 'App\Http\Controllers\SliderAdminController@create'
         ]);
         Route::post('/store', [
             'as' => 'slider.store',
@@ -155,8 +180,7 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/edit/{id}', [
             'as' => 'slider.edit',
-            'uses' => 'App\Http\Controllers\SliderAdminController@edit',
-            'middleware' => 'can:slider-edit'
+            'uses' => 'App\Http\Controllers\SliderAdminController@edit'
         ]);
         Route::post('/update/{id}', [
             'as' => 'slider.update',
@@ -164,8 +188,7 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/delete/{id}', [
             'as' => 'slider.delete',
-            'uses' => 'App\Http\Controllers\SliderAdminController@delete',
-            'middleware' => 'can:slider-delete'
+            'uses' => 'App\Http\Controllers\SliderAdminController@delete'
         ]);
     });
 
@@ -173,13 +196,11 @@ Route::prefix('admin')->group(function () {
     Route::prefix('settings')->group(function () {
         Route::get('/', [
             'as' => 'settings.index',
-            'uses' => 'App\Http\Controllers\AdminSettingController@index',
-            'middleware' => 'can:setting-list'
+            'uses' => 'App\Http\Controllers\AdminSettingController@index'
         ]);
         Route::get('/create', [
             'as' => 'settings.create',
-            'uses' => 'App\Http\Controllers\AdminSettingController@create',
-            'middleware' => 'can:slider-add'
+            'uses' => 'App\Http\Controllers\AdminSettingController@create'
         ]);
         Route::post('/store', [
             'as' => 'settings.store',
@@ -187,8 +208,7 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/edit/{id}', [
             'as' => 'settings.edit',
-            'uses' => 'App\Http\Controllers\AdminSettingController@edit',
-            'middleware' => 'can:slider-edit'
+            'uses' => 'App\Http\Controllers\AdminSettingController@edit'
         ]);
         Route::post('/update/{id}', [
             'as' => 'settings.update',
@@ -196,8 +216,7 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/delete/{id}', [
             'as' => 'settings.delete',
-            'uses' => 'App\Http\Controllers\AdminSettingController@delete',
-            'middleware' => 'can:slider-delete'
+            'uses' => 'App\Http\Controllers\AdminSettingController@delete'
         ]);
     });
 
@@ -205,13 +224,11 @@ Route::prefix('admin')->group(function () {
     Route::prefix('users')->group(function () {
         Route::get('/', [
             'as' => 'users.index',
-            'uses' => 'App\Http\Controllers\AdminUserController@index',
-            'middleware' => 'can:role-list'
+            'uses' => 'App\Http\Controllers\AdminUserController@index'
         ]);
         Route::get('/create', [
             'as' => 'users.create',
-            'uses' => 'App\Http\Controllers\AdminUserController@create',
-            'middleware' => 'can:user-add'
+            'uses' => 'App\Http\Controllers\AdminUserController@create'
         ]);
         Route::post('/store', [
             'as' => 'users.store',
@@ -219,8 +236,7 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/edit/{id}', [
             'as' => 'users.edit',
-            'uses' => 'App\Http\Controllers\AdminUserController@edit',
-            'middleware' => 'can:user-edit'
+            'uses' => 'App\Http\Controllers\AdminUserController@edit'
         ]);
         Route::post('/update/{id}', [
             'as' => 'users.update',
@@ -228,22 +244,26 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/delete/{id}', [
             'as' => 'users.delete',
-            'uses' => 'App\Http\Controllers\AdminUserController@delete',
-            'middleware' => 'can:user-delete'
+            'uses' => 'App\Http\Controllers\AdminUserController@delete'
         ]);
     });
 
+    //customer
+    Route::prefix('customers')->group(function () {
+        Route::get('/', [
+            'as' => 'customers.index',
+            'uses' => 'App\Http\Controllers\CustomerController@index'
+        ]);
+    });
     //role
     Route::prefix('roles')->group(function () {
         Route::get('/', [
             'as' => 'roles.index',
-            'uses' => 'App\Http\Controllers\AdminRoleController@index',
-            'middleware' => 'can:role-list'
+            'uses' => 'App\Http\Controllers\AdminRoleController@index'
         ]);
         Route::get('/create', [
             'as' => 'roles.create',
-            'uses' => 'App\Http\Controllers\AdminRoleController@create',
-            'middleware' => 'can:role-add'
+            'uses' => 'App\Http\Controllers\AdminRoleController@create'
         ]);
         Route::post('/store', [
             'as' => 'roles.store',
@@ -251,8 +271,7 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/edit/{id}', [
             'as' => 'roles.edit',
-            'uses' => 'App\Http\Controllers\AdminRoleController@edit',
-            'middleware' => 'can:role-edit'
+            'uses' => 'App\Http\Controllers\AdminRoleController@edit'
         ]);
         Route::post('/update/{id}', [
             'as' => 'roles.update',
@@ -260,8 +279,7 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/delete/{id}', [
             'as' => 'roles.delete',
-            'uses' => 'App\Http\Controllers\AdminRoleController@delete',
-            'middleware' => 'can:role-delete'
+            'uses' => 'App\Http\Controllers\AdminRoleController@delete'
         ]);
     });
 

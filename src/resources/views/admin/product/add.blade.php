@@ -82,12 +82,12 @@
                             @enderror
 
                             <div class="form-group">
-                                <label>Thêm size</label><br>
+                                <label>Thêm tags cho sản phẩm</label><br>
                                 <select name="tags[]" class="form-control tags_select_choose" multiple="multiple">
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Miêu tả sản phẩm</label>
+                                <label>Mô tả sản phẩm</label>
                                 <textarea name="contents" class="form-control @error('content') is-invalid @enderror" id="content">{{ old('contents') }}</textarea>
                             </div>
                             @error('contents')
@@ -99,7 +99,7 @@
                                     placeholder="Nhập số lượng sản phẩm nhập" value="{{ old('quantity') }}">
                             </div>
                             
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i>Submit</button>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i>Gửi</button>
                         </form>
                     </div>
                 </div>

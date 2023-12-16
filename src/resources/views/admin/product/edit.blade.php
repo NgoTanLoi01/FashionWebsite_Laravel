@@ -78,7 +78,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Miêu tả sản phẩm</label>
+                                <label>Mô tả sản phẩm</label>
                                 <textarea name="contents" class="form-control" id="content">{{ $product->content }}</textarea>
                             </div>
                             <div class="form-group">
@@ -87,7 +87,7 @@
                                     value="{{ $product->quantity }}">
                             </div>
                             
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i>Submit</button>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-arrow-up"></i>Gửi</button>
                         </form>
                     </div>
                 </div>

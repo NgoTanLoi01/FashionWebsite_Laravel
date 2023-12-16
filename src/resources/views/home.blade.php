@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-<title>Trang chủ</title>
+<title>Admin</title>
 
 @endsection
 
@@ -9,7 +9,7 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @include('partials.content-header', ['name' => 'Trang chủ', 'key' => ''] ) 
+    @include('partials.content-header', ['name' => 'Home', 'key' => 'home'] ) 
     <!-- /.content-header -->
 
     <!-- Main content -->
@@ -19,7 +19,6 @@
                 <div class="col-md-12">
                 </div>
                 <div class="col-md-12">
-                
                 </div>
             </div>
             <!-- /.row -->

@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "b7d225ef4b32add6af3ad57167cd1707",
+=======
+    "content-hash": "472fd1aeac0f4e95277f70b94229b055",
+>>>>>>> fad1e0137a6e2fd3fdedce66a4c8f77dfb598b8c
     "packages": [
         {
             "name": "brick/math",
@@ -716,6 +720,7 @@
                 }
             ],
             "time": "2023-10-12T05:21:21+00:00"
+<<<<<<< HEAD
         },
         {
             "name": "google/recaptcha",
@@ -768,6 +773,8 @@
                 "source": "https://github.com/google/recaptcha"
             },
             "time": "2020-03-31T17:50:54+00:00"
+=======
+>>>>>>> fad1e0137a6e2fd3fdedce66a4c8f77dfb598b8c
         },
         {
             "name": "graham-campbell/result-type",

@@ -12,7 +12,10 @@
         "bumbummen99/shoppingcart": "^4.2",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^3.0",
+<<<<<<< HEAD
         "google/recaptcha": "~1.1",
+=======
+>>>>>>> fad1e0137a6e2fd3fdedce66a4c8f77dfb598b8c
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0"

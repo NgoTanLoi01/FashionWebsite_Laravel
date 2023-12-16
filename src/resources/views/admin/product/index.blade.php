@@ -44,8 +44,13 @@
                                         <th scope="row">{{ $productItem->id }}</th>
                                         <td>{{ $productItem->name }}</td>
                                         {{-- <td>{{ number_format($productItem->price) }}</td> --}}
+<<<<<<< HEAD
                                         <td>{{ number_format(floatval($productItem->price)) }} VNĐ</td>
                                         <td style="color: red">{{ number_format(floatval($productItem->sale_price)) }} VNĐ</td>
+=======
+                                        <td>{{ number_format(floatval($productItem->price)) }}</td>
+                                        <td style="color: red">{{ number_format(floatval($productItem->sale_price)) }}</td>
+>>>>>>> fad1e0137a6e2fd3fdedce66a4c8f77dfb598b8c
                                         <td>
                                             <img class="product_image_150_100" src="{{ $productItem->feature_image_path }}"
                                                 alt="">

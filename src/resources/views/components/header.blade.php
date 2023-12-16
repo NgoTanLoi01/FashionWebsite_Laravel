@@ -53,12 +53,20 @@
             <div class="header-center">
                 <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
                     <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
+<<<<<<< HEAD
                     <form action="{{ URL::to('/tim_kiem') }}" method="POST">
                         {{ csrf_field() }}
                         <div class="header-search-wrapper search-wrapper-wide">
                             <label for="q" class="sr-only">Search</label>
                             <button class="btn btn-primary" name="search_items" type="submit"><i
                                     class="icon-search"></i></button>
+=======
+                    <form action="{{URL::to('/tim_kiem')}}" method="POST">
+                        {{ csrf_field() }}
+                        <div class="header-search-wrapper search-wrapper-wide">
+                            <label for="q" class="sr-only">Search</label>
+                            <button class="btn btn-primary" name="search_items" type="submit"><i class="icon-search"></i></button>
+>>>>>>> fad1e0137a6e2fd3fdedce66a4c8f77dfb598b8c
                             <input type="search" class="form-control" name="keywords_submit" id="q"
                                 placeholder="Tìm kiếm sản phẩm ..." required>
                         </div><!-- End .header-search-wrapper -->

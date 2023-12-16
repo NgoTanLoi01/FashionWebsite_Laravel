@@ -43,6 +43,10 @@
                                         <th>Giá</th>
                                         <th>Số lượng</th>
                                         <th>Tổng cộng</th>
+<<<<<<< HEAD
+=======
+                                        <th></th>
+>>>>>>> fad1e0137a6e2fd3fdedce66a4c8f77dfb598b8c
                                     </tr>
                                 </thead>
 
@@ -70,10 +74,16 @@
                                                 <div class="cart-product-quantity">
                                                     <form action="{{ URL::to('/update-cart-quantity') }}" method="GET">
                                                         {{ csrf_field() }}
+<<<<<<< HEAD
 
                                                         <input class="form-control" type="number" name="cart_quantity"
                                                             value="{{ $v_content->qty }}" required autocomplete="off"
                                                             style="padding: 2px 6px; font-size: 10px;" min="1"
+=======
+                                                        <input class="form-control" type="number" name="cart_quantity"
+                                                            value="{{ $v_content->qty }}" required autocomplete="off"
+                                                            style="padding: 2px 6px; font-size: 10px;"
+>>>>>>> fad1e0137a6e2fd3fdedce66a4c8f77dfb598b8c
                                                             max="{{ $v_content->qty }}">
                                                         <input type="hidden" value="{{ $v_content->rowId }}"
                                                             name="rowId_cart" class="form-control"
@@ -81,7 +91,10 @@
                                                         <br>
                                                         <input type="submit" value="Cập nhật" name="update_qty"
                                                             class="form-control" style="padding: 2px 6px; font-size: 10px;">
+<<<<<<< HEAD
 
+=======
+>>>>>>> fad1e0137a6e2fd3fdedce66a4c8f77dfb598b8c
                                                     </form>
                                                 </div><!-- End .cart-product-quantity -->
                                             </td>
@@ -91,10 +104,22 @@
                                             <td class="remove-col"><a
                                                     href="{{ URL::to('/delete-to-cart/' . $v_content->rowId) }}"
                                                     class="btn-remove"><i class="icon-close"></i></a></td>
+<<<<<<< HEAD
+=======
+
+>>>>>>> fad1e0137a6e2fd3fdedce66a4c8f77dfb598b8c
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table><!-- End .table table-wishlist -->
+<<<<<<< HEAD
+=======
+
+                            {{-- <div class="cart-bottom">
+                                <a href="#" class="btn btn-outline-dark-2"><span>Cập nhật giỏ hàng</span><i
+                                        class="icon-refresh"></i></a>
+                            </div><!-- End .cart-bottom --> --}}
+>>>>>>> fad1e0137a6e2fd3fdedce66a4c8f77dfb598b8c
                         </div><!-- End .col-lg-9 -->
                         <aside class="col-lg-3">
                             <div class="summary summary-cart">
@@ -125,6 +150,7 @@
                                     </tbody>
                                 </table><!-- End .table table-summary -->
 
+<<<<<<< HEAD
                                 <?php
                                 $customer_id = Session::get('customer_id');
                                 if ($customer_id != null) {
@@ -146,6 +172,9 @@
                                 } 
                                 ?>
 
+=======
+                                <a href="checkout.html" class="btn btn-outline-primary-2 btn-order btn-block">THANH TOÁN</a>
+>>>>>>> fad1e0137a6e2fd3fdedce66a4c8f77dfb598b8c
                             </div><!-- End .summary -->
                         </aside><!-- End .col-lg-3 -->
                     </div><!-- End .row -->

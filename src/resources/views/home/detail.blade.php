@@ -79,10 +79,25 @@
                                             <input type="number" name="qty" id="qty" class="form-control"
                                                 value="1" min="1" max="{{ $product->quantity }}" step="1"
                                                 data-decimals="0" required>
+<<<<<<< HEAD
                                                 <br>
                                             <input name="productid_hidden" type="hidden" class="form-control"
                                                 value="{{ $product->id }}">
                                         </div><!-- End .product-details-quantity -->
+=======
+                                            <input name="productid_hidden" type="hidden" class="form-control"
+                                                value="{{ $product->id }}">
+                                        </div><!-- End .product-details-quantity -->
+                                        <div>
+                                            <label for="qty">Chọn size:</label>
+                                            <select class="product-details-action" name="cars" id="cars">
+                                                <option value="volvo">S</option>
+                                                <option value="saab">L</option>
+                                                <option value="opel">XL</option>
+                                                <option value="audi">2XL</option>
+                                            </select>
+                                        </div>
+>>>>>>> fad1e0137a6e2fd3fdedce66a4c8f77dfb598b8c
                                     </div><!-- End .details-filter-row -->
                                     <div class="product-details-action">
                                         {{-- <a href="#" class="btn-product btn-cart"><span>Thêm vào giỏ hàng</span></a> --}}

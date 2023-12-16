@@ -34,6 +34,7 @@ class HomeAdminController extends Controller
     {
         $keywords = $request->keywords_submit;
         $productsSelling = Product::latest('views_count', 'desc')->take(12)->get();
+<<<<<<< HEAD
         $search_product = DB::table('products')->where('name', 'like', '%' . $keywords . '%')->get();
         return view("home.search", compact("productsSelling"))->with('search_product', $search_product);
     }
@@ -43,4 +44,9 @@ class HomeAdminController extends Controller
         $products = Product::latest()->take(12)->get();;
         return view('home.product_all', compact('products'));
     }
+=======
+        $search_product = DB::table('products')->where('name','like','%'. $keywords .'%')->get();
+        return view("home.search", compact("productsSelling"))->with('search_product', $search_product);
+    }
+>>>>>>> fad1e0137a6e2fd3fdedce66a4c8f77dfb598b8c
 }

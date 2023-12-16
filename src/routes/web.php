@@ -9,7 +9,11 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeAdminController;
+<<<<<<< HEAD
 use App\Http\Controllers\CheckoutController;
+=======
+use App\Http\Controllers\CartController;
+>>>>>>> fad1e0137a6e2fd3fdedce66a4c8f77dfb598b8c
 use App\Http\Controllers\CategoryAdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,6 +72,12 @@ Route::get('/delete-order/{orderId}', [CheckoutController::class, 'delete_order'
 Route::get('/print-order', [CheckoutController::class, 'print_order']);
 
 
+
+//gio hang
+Route::post('/save-cart', [CartController::class, 'save_cart']);
+Route::get('/show-cart', [CartController::class, 'show_cart']);
+Route::get('/delete-to-cart/{rowId}', [CartController::class, 'delete_to_cart']);
+Route::get('/update-cart-quantity', [CartController::class, 'update_cart_quantity']);
 
 //xu ly admin
 Route::prefix('admin')->group(function () {
